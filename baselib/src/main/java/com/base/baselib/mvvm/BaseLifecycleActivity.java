@@ -10,10 +10,6 @@ public abstract class BaseLifecycleActivity<T extends BaseViewModel> extends Bas
 
     protected T mViewModel;
 
-    public BaseLifecycleActivity() {
-
-    }
-
     @Override
     public void initViews() {
         super.initViews();

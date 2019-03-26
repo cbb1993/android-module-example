@@ -44,6 +44,12 @@ abstract class BaseActivity : AppCompatActivity() {
      lateinit var mWindowManager: WindowManager
      lateinit var mLayoutParams: WindowManager.LayoutParams
 
+
+    /**
+     * 是否使用 EventBus
+     */
+    open fun useEventBus(): Boolean = true
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
@@ -52,7 +58,7 @@ abstract class BaseActivity : AppCompatActivity() {
         // 获取布局id
         setContentView(getLayoutId())
 
-        if(isUseEventBus()){
+        if(useEventBus()){
             EventBus.getDefault().register(this)
         }
 
@@ -145,9 +151,7 @@ abstract class BaseActivity : AppCompatActivity() {
         return R.color.statusBar
     }
 
-    open fun isUseEventBus(): Boolean {
-        return false
-    }
+
 
    private fun setTranslucentStatus() {
         val winParams = window.attributes;
@@ -165,7 +169,7 @@ abstract class BaseActivity : AppCompatActivity() {
 
     override fun onDestroy() {
         super.onDestroy()
-        if(isUseEventBus()){
+        if(useEventBus()){
             EventBus.getDefault().unregister(this)
         }
     }

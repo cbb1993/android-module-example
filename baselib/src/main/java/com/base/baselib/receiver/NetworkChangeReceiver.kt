@@ -6,6 +6,7 @@ import android.content.Intent
 import com.base.baselib.constant.Constant
 import com.base.baselib.utils.NetWorkUtil
 import com.base.baselib.utils.PreferenceUtil
+import com.base.event.NetworkChangeEvent
 import org.greenrobot.eventbus.EventBus
 
 /**
@@ -20,13 +21,13 @@ class NetworkChangeReceiver : BroadcastReceiver() {
 
     override fun onReceive(context: Context, intent: Intent) {
         val isConnected = NetWorkUtil.isNetworkConnected(context)
-//        if (isConnected) {
-//            if (isConnected != hasNetwork) {
-//                EventBus.getDefault().post(NetworkChangeEvent(isConnected))
-//            }
-//        } else {
-//            EventBus.getDefault().post(NetworkChangeEvent(isConnected))
-//        }
+        if (isConnected) {
+            if (isConnected != hasNetwork) {
+                EventBus.getDefault().post(NetworkChangeEvent(isConnected))
+            }
+        } else {
+            EventBus.getDefault().post(NetworkChangeEvent(isConnected))
+        }
     }
 
 }
