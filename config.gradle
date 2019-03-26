@@ -12,13 +12,16 @@ ext {
     // 依赖的版本管理
     dependVersion = [
             androidSupportSdkVersion: "28.0.0",
+            retrofitSdkVersion      : "2.4.0",
             rxJava:"2.2.7",
             rxAndroid:"2.1.1",
+            rxKotlin : "2.3.0",
     ]
 
     rxJava = [
             "rxJava"   : "io.reactivex.rxjava2:rxjava:${dependVersion.rxJava}",
             "rxAndroid": "io.reactivex.rxjava2:rxandroid:${dependVersion.rxAndroid}",
+            "rxKotlin" : "io.reactivex.rxjava2:rxkotlin:${dependVersion.rxKotlin}",
     ]
 
     // 基础依赖
@@ -29,11 +32,23 @@ ext {
             "annotations"      : "com.android.support:support-annotations:${dependVersion.androidSupportSdkVersion}",
     ]
 
+    retrofit = [
+            "retrofit"                : "com.squareup.retrofit2:retrofit:${dependVersion.retrofitSdkVersion}",
+            "retrofitConverterGson"   : "com.squareup.retrofit2:converter-gson:${dependVersion.retrofitSdkVersion}",
+            "retrofitAdapterRxjava2"  : "com.squareup.retrofit2:adapter-rxjava2:${dependVersion.retrofitSdkVersion}",
+            "okhttp3LoggerInterceptor": 'com.squareup.okhttp3:logging-interceptor:3.11.0',
+    ]
+
+
     commonDeps = [
             "eventbus"              : 'org.greenrobot:eventbus:3.1.1',
-            "systembartint"      :     "com.readystatesoftware.systembartint:systembartint:1.0.3"
+            "systembartint"      :    "com.readystatesoftware.systembartint:systembartint:1.0.3",
+            "lifecycle"      :    "android.arch.lifecycle:extensions:1.1.1",
+
     ]
 
     supportLibs = supportDeps.values()
+    rxJavaLibs = rxJava.values()
+    retrofitLibs = retrofit.values()
     commonLibs = commonDeps.values()
 }

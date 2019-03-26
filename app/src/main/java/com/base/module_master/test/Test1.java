@@ -1,5 +1,6 @@
 package com.base.module_master.test;
 
+
 import com.alibaba.android.arouter.facade.annotation.Route;
 import com.base.baselib.base.BaseActivity;
 import com.base.baselib.constant.RouterConstant;
@@ -10,5 +11,12 @@ public class Test1 extends BaseActivity {
     @Override
     public int getLayoutId() {
         return R.layout.activity_test_1;
+    }
+
+    @Override
+    public void initViews() {
+        super.initViews();
+
+
     }
 }

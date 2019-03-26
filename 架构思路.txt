@@ -22,3 +22,5 @@
     retrofit
 其他重要依赖：
     RxJava
+基本架构
+    MVVM -- LiveData + ViewModel

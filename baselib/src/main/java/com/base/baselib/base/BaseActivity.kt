@@ -5,15 +5,18 @@ import android.content.IntentFilter
 import android.graphics.PixelFormat
 import android.os.Build
 import android.os.Bundle
+import android.support.v4.app.ActivityOptionsCompat
 import android.support.v7.app.AppCompatActivity
 import android.view.Gravity
 import android.view.View
 import android.view.ViewGroup
 import android.view.WindowManager
 import com.alibaba.android.arouter.launcher.ARouter
+import com.base.baselib.BaseApplication
 import com.base.baselib.R
 import com.base.baselib.constant.Constant
 import com.base.baselib.utils.PreferenceUtil
+import com.base.data.dao.DaoSession
 import com.base.event.NetworkChangeEvent
 import com.base.lib.receiver.NetworkChangeReceiver
 import com.readystatesoftware.systembartint.SystemBarTintManager
@@ -168,7 +171,14 @@ abstract class BaseActivity : AppCompatActivity() {
     }
 
 
-    open fun navigation(path:String){
-        ARouter.getInstance().build(path).navigation()
+    open fun navigation(path:String,v:View){
+        var compat = ActivityOptionsCompat.
+        makeScaleUpAnimation(v, v.width / 2, v.height / 2, 0, 0);
+
+        ARouter.getInstance().build(path).withOptionsCompat(compat).navigation()
+    }
+
+    fun getDaoSession() :DaoSession{
+       return BaseApplication.getDaoSession()
     }
 }
