@@ -20,6 +20,7 @@
             </intent-filter>
         </activity>
         <activity android:name=".test.Test1"/>
+        <!--<activity android:name=".test.Test1"/>-->
 
     </application>
 

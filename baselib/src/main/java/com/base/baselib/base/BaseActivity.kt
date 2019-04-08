@@ -18,7 +18,7 @@ import com.base.baselib.constant.Constant
 import com.base.baselib.utils.PreferenceUtil
 import com.base.data.dao.DaoSession
 import com.base.event.NetworkChangeEvent
-import com.base.lib.receiver.NetworkChangeReceiver
+import com.base.baselib.receiver.NetworkChangeReceiver
 import com.readystatesoftware.systembartint.SystemBarTintManager
 import org.greenrobot.eventbus.EventBus
 import org.greenrobot.eventbus.Subscribe

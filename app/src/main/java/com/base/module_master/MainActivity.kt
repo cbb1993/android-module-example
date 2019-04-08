@@ -1,6 +1,7 @@
 package com.base.module_master
 
 import android.arch.lifecycle.Observer
+import com.base.baselib.constant.RouterConstant
 import com.base.baselib.mvvm.BaseLifecycleActivity
 import com.base.baselib.mvvm.LiveBus
 import com.base.data.entry.User
@@ -18,12 +19,12 @@ class MainActivity : BaseLifecycleActivity<MainViewModel>() {
 
         LiveBus.getDefault().subscribe("test", User::class.java).observe(this,
             Observer<User> { user ->
-                tv_hello.text = user?.name
-            })
+            tv_hello.text = user?.name
+        })
 
         tv_hello.setOnClickListener {
-            mViewModel.getUserById(i++)
-//            navigation(RouterConstant.ROUTER_TEST_1,tv_hello)
+//            mViewModel.getUserById(i++)
+            navigation(RouterConstant.ROUTER_TEST_1,tv_hello)
         }
     }
 

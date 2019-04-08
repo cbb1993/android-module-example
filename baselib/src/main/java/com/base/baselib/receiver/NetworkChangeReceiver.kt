@@ -1,4 +1,4 @@
-package com.base.lib.receiver
+package com.base.baselib.receiver
 
 import android.content.BroadcastReceiver
 import android.content.Context
